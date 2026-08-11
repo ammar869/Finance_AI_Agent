@@ -1,4 +1,4 @@
-from langchain_core.tools import tools
+from langchain_core.tools import tool
 from dotenv import load_dotenv
 import requests
 import os
@@ -6,7 +6,7 @@ import os
 load_dotenv()
 @tools
 def get_exchange_rate(base_currency:str, target_currency:str)-> float:
-   """Fetches the exchange rate between two currencies using the ExchangeRate-API.""""
+   """Fetches the exchange rate between two currencies using the ExchangeRate-API."""
    api_key = os.environ.get("EXCHANGE_API_KEY")
    response = requests.get(f"https://v6.exchangerate-api.com/v6/{api_key}/latest/{base_currency}")
    data = response.json()
