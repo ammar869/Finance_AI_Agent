@@ -17,8 +17,8 @@ def get_exchange_rate(base_currency:str, target_currency:str)-> float:
          raise Exception("Error fetching exchange rate")
    
 result = get_exchange_rate.invoke({
-    "base_currency": "USD",
-    "target_currency": "EUR"
+    "base_currency": "INR",
+    "target_currency": "PKR"
 })
 
 print(result)
