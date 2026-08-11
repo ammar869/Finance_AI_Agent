@@ -4,6 +4,7 @@ import requests
 import os
 
 
+
 load_dotenv()
 @tool
 def get_exchange_rate(base_currency:str, target_currency:str)-> float:
@@ -22,4 +23,3 @@ result = get_exchange_rate.invoke({
     "target_currency": "PKR"
 })
 
-print(result)

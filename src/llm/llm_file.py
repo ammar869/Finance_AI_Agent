@@ -3,10 +3,11 @@ from langchain_groq import ChatGroq
 
 load_dotenv()
 
-llm = ChatGroq(
+llm= ChatGroq(
     model="llama-3.3-70b-versatile"
 )
 
-response = llm.invoke("Explain LangChain in one sentence.")
+#response = llm.invoke("Explain LangChain in one sentence.")
 
-print(response.content)
+#print(response.content)
+
