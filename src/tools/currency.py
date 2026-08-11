@@ -4,7 +4,7 @@ import requests
 import os
 
 load_dotenv()
-@tools
+@tool
 def get_exchange_rate(base_currency:str, target_currency:str)-> float:
    """Fetches the exchange rate between two currencies using the ExchangeRate-API."""
    api_key = os.environ.get("EXCHANGE_API_KEY")
@@ -16,5 +16,9 @@ def get_exchange_rate(base_currency:str, target_currency:str)-> float:
    else:
          raise Exception("Error fetching exchange rate")
    
-#print(get_exchange_rate("USD", "PKR"))
-print(get_exchange_rate.args)
+result = get_exchange_rate.invoke({
+    "base_currency": "USD",
+    "target_currency": "EUR"
+})
+
+print(result)
