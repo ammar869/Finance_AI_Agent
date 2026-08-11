@@ -14,4 +14,4 @@ def get_exchange_rate(base_currency, target_currency):
    else:
          raise Exception("Error fetching exchange rate")
    
-print(get_exchange_rate("PKR", "USD"))
+print(get_exchange_rate("USD", "PKR"))
