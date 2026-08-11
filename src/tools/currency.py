@@ -1,0 +1,1 @@
+print("Hi there! I am your Finance AI Agent. I can help you with various financial tasks, including currency conversion, stock market analysis, and more. How can I assist you today?")
