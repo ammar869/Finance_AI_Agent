@@ -3,6 +3,7 @@ from dotenv import load_dotenv
 import requests
 import os
 
+
 load_dotenv()
 @tool
 def get_exchange_rate(base_currency:str, target_currency:str)-> float:
