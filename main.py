@@ -9,14 +9,18 @@ tools = [
     get_exchange_rate,
     calculate_percentage
 ]
+tool_map = {
+    tool.name: tool
+    for tool in tools
+}
 
 # Bind both tools to ONE LLM
 llm_with_tools = llm.bind_tools(tools)
 
 
 # User asks a question
-user_message = "What is the current USD to PKR exchange rate?"
-
+#user_message = "What is the current USD to PKR exchange rate?"
+user_message = "What is 15 percent of 2000?"
 response = llm_with_tools.invoke(user_message)
 
 print("Tool calls:")
