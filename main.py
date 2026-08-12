@@ -5,7 +5,7 @@ from langchain_community.tools import DuckDuckGoSearchRun
 from langchain_core.messages import HumanMessage, ToolMessage
 
 
-searching_tool = DuckDuckGoSearchRun
+searching_tool = DuckDuckGoSearchRun()
 # Available tools
 tools = [
     get_exchange_rate,
