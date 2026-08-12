@@ -2,37 +2,52 @@ from src.llm.llm_file import llm
 from src.tools.currency import get_exchange_rate
 from src.tools.percentage import calculate_percentage
 from langchain_core.messages import ToolMessage
-llm_with_tools = llm.bind_tools([get_exchange_rate])
-
-# 1. User asks question
-user_message = "What is the current USD to PKR exchange rate?"
-response = llm_with_tools.invoke(user_message)
 
 
-tool_call = response.tool_calls[0]
-
-
+# Available tools
 tools = [
     get_exchange_rate,
     calculate_percentage
 ]
 
+# Bind both tools to ONE LLM
+llm_with_tools = llm.bind_tools(tools)
+
+
+# User asks a question
+user_message = "What is the current USD to PKR exchange rate?"
+
+response = llm_with_tools.invoke(user_message)
+
+print("Tool calls:")
+print(response.tool_calls)
+
+
+# Get the tool call selected by the LLM
+tool_call = response.tool_calls[0]
+
+
+# Execute the selected tool
 tool_result = get_exchange_rate.invoke(tool_call["args"])
 
+print("Tool result:")
 print(tool_result)
 
 
+# Create ToolMessage
 tool_message = ToolMessage(
     content=str(tool_result),
     tool_call_id=tool_call["id"]
 )
 
-# 6. Send everything back to the LLM
+
+# Send result back to LLM
 final_response = llm_with_tools.invoke([
     user_message,
     response,
     tool_message
 ])
-# 7. Final answer
+
+
 print("Final answer:")
 print(final_response.content)
