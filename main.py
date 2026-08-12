@@ -25,7 +25,7 @@ llm_with_tools = llm.bind_tools(tools)
 
 
 # User asks a question
-user_message = "What is 15 percent of 2000?"
+user_message = "Latest news about Pakistan, turkey, Saudia"
 
 response = llm_with_tools.invoke(user_message)
 
