@@ -18,6 +18,43 @@ buildin tool bnaya
 
 masla yhan pr aya kh :
 chotey chotey errors ki wajha se kaam kharab hua.
+last ma jab ziada tools ho gaey they to 
+errors a rhy they, 
+wo asla ma tools abstraction ka koi scean tha 
 
+folders or files ke name different rakhney hen
+
+from src.llm.llm_file import llm
+from src.tools.exchange_rate import get_exchange_rate
+
+code ma phly kia aana he baad ma kia aana he is ko zarri squenece ma le kr aana he
+
+response
+   ↓
+response.tool_calls[0]
+   ↓
+tool_call
+   ↓
+tool_call["args"]
+   ↓
+{"base_currency": "USD", "target_currency": "PKR"}
+   ↓
+get_exchange_rate.invoke(...)
+   ↓
+Real exchange rate
+
+
+dusri files ko import karna he 
+
+Structure
+LLM
+ ↓
+understands question
+ ↓
+decides a tool is needed
+ ↓
+generates tool call
+ ↓
+YOUR CODE executes the tool
 
 
