@@ -6,6 +6,7 @@ import os
 
 
 load_dotenv()
+
 @tool
 def get_exchange_rate(base_currency:str, target_currency:str)-> float:
    """Fetches the exchange rate between two currencies using the ExchangeRate-API."""
